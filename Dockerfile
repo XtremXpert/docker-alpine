@@ -25,6 +25,7 @@ RUN apk update && \
 		tar \
 		unzip \
 		vim \
+		zlib \
 	&& \
 	ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && \
 	rm -fr /var/lib/apk/* && \
