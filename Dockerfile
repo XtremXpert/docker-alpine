@@ -1,24 +1,32 @@
-FROM alpine:edge
-MAINTAINER Thomas Boerger <thomas@webhippie.de>
+FROM alpine:latest
 
-ADD rootfs /
+MAINTAINER XtremXpert <xtremxpert@xtremxpert.com>
+
+ENV LANG="fr_CA.UTF-8" \
+	LC_ALL="fr_CA.UTF-8" \
+	LANGUAGE="fr_CA.UTF-8" \
+	TZ="America/Toronto" \
+	TERM="xterm"
 
 RUN apk update && \
   apk upgrade && \
-  apk add \
-    ca-certificates \
-    curl \
+  apk --update add \
     bash \
     bash-completion \
-    ncurses \
-    vim \
+    ca-certificates \
+    curl \
     gettext \
     logrotate \
-    tar \
+    mc \
+    nano \
+    ncurses \
+    openntpd \
     rsync \
-    shadow@testing \
-    s6@testing && \
-  rm -rf /var/cache/apk/* && \
-  mkdir -p /etc/logrotate.docker.d
+    tar \
+    vim \
+  && \
+  ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && \
+	rm -fr /var/lib/apk/* && \ 
+  rm -rf /var/cache/apk/* 
 
 CMD ["bash"]
