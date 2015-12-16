@@ -23,10 +23,11 @@ RUN apk update && \
     openntpd \
     rsync \
     tar \
+		unzip \
     vim \
   && \
   ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && \
-	rm -fr /var/lib/apk/* && \ 
-  rm -rf /var/cache/apk/* 
+	rm -fr /var/lib/apk/* && \
+  rm -rf /var/cache/apk/*
 
 CMD ["bash"]
