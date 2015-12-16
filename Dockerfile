@@ -9,25 +9,25 @@ ENV LANG="fr_CA.UTF-8" \
 	TERM="xterm"
 
 RUN apk update && \
-  apk upgrade && \
-  apk --update add \
-    bash \
-    bash-completion \
-    ca-certificates \
-    curl \
-    gettext \
-    logrotate \
-    mc \
-    nano \
-    ncurses \
-    openntpd \
-    rsync \
-    tar \
+	apk upgrade && \
+	apk --update add \
+		bash \
+		bash-completion \
+		ca-certificates \
+		curl \
+		gettext \
+		logrotate \
+		mc \
+		nano \
+		ncurses \
+		openntpd \
+		rsync \
+		tar \
 		unzip \
-    vim \
-  && \
-  ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && \
+		vim \
+	&& \
+	ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && \
 	rm -fr /var/lib/apk/* && \
-  rm -rf /var/cache/apk/*
+	rm -rf /var/cache/apk/*
 
 CMD ["bash"]
